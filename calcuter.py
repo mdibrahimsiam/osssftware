@@ -1,11 +1,33 @@
-# calcuter.py
-# Auto-generated content
-def main():
-    print("This is a sample Python file")
-    print(f"File: calcuter.py")
-    print(f"Repository: mdibrahimsiam/osssftware")
-    print(f"Branch: main")
-    print(f"Last updated: 2025-04-28T01:08:57.033764")
+def calculator():
+    print("Welcome to the Real-Feel Calculator!")
+    print("-------------------------------------")
+    last_answer = 0
+    
+    while True:
+        print("\nOptions:")
+        print(" Type your expression (e.g., 4+5*6-3)")
+        print(" Type 'ans' to use the last answer")
+        print(" Type 'clear' to reset last answer to 0")
+        print(" Type 'exit' to quit")
+        
+        expression = input("\nEnter your calculation: ")
+        
+        if expression.lower() == 'exit':
+            print("Goodbye!")
+            break
+        elif expression.lower() == 'clear':
+            last_answer = 0
+            print("Memory cleared. Last answer reset to 0.")
+            continue
+        elif 'ans' in expression:
+            expression = expression.replace('ans', str(last_answer))
+        
+        try:
+            # Safely evaluate the expression
+            result = eval(expression)
+            print(f"Result: {result}")
+            last_answer = result
+        except Exception as e:
+            print(f"Error: {e}")
 
-if __name__ == "__main__":
-    main()
+calculator()
